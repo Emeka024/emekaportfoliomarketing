@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Emeka Okonkwo — Marketing & Growth Operator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:wght@300;400;500&family=Epilogue:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #f4ede0;
+    --green: #1b3d2b;
+    --green-mid: #2b5a3e;
+    --terra: #c45e2a;
+    --terra-light: #e07a4a;
+    --ink: #1a1a18;
+    --muted: #7a7068;
+    --divider: #d9cfc0;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Epilogue', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ─── GRAIN OVERLAY ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 220px 220px;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 3.5rem;
+    mix-blend-mode: multiply;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    background: var(--green);
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 8rem 3.5rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra-light);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s forwards;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4rem, 7vw, 7rem);
+    font-weight: 300;
+    line-height: 0.92;
+    color: var(--cream);
+    opacity: 0;
+    animation: fadeUp 0.8s 0.4s forwards;
+  }
+  .hero-name em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--terra-light);
+  }
+
+  .hero-desc {
+    margin-top: 2.5rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(244,237,224,0.65);
+    max-width: 380px;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.65s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.85s forwards;
+  }
+
+  .btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.85rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--terra);
+    color: var(--cream);
+  }
+  .btn-primary:hover { background: var(--terra-light); }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(244,237,224,0.3);
+    color: rgba(244,237,224,0.75);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(244,237,224,0.7);
+    color: var(--cream);
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 8rem 3.5rem 5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    text-align: right;
+    opacity: 0;
+    animation: fadeUp 0.8s 0.9s forwards;
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--terra-light);
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(244,237,224,0.45);
+    margin-top: 0.3rem;
+  }
+
+  .hero-bg-text {
+    position: absolute;
+    bottom: -0.15em;
+    right: -0.02em;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(12rem, 22vw, 22rem);
+    font-weight: 700;
+    line-height: 1;
+    color: rgba(244,237,224,0.025);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1;
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    animation: fadeUp 0.8s 1.2s forwards;
+  }
+
+  .hero-scroll span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(244,237,224,0.35);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(244,237,224,0.3), transparent);
+    animation: scrollPulse 2s infinite;
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { transform: scaleY(1); opacity: 0.5; }
+    50% { transform: scaleY(0.6); opacity: 1; }
+  }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 7rem 3.5rem; }
+
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.67rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4vw, 3.8rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--green);
+  }
+  .section-title em {
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .rule {
+    width: 60px;
+    height: 2px;
+    background: var(--terra);
+    margin: 2rem 0;
+  }
+
+  /* ─── ABOUT ─── */
+  #about {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .about-text p + p { margin-top: 1.4rem; }
+
+  .about-text strong {
+    font-weight: 500;
+    color: var(--green);
+  }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-card {
+    border-left: 2px solid var(--divider);
+    padding: 1.4rem 2rem;
+    background: rgba(27,61,43,0.03);
+    transition: border-color 0.2s;
+  }
+  .about-card:hover { border-color: var(--terra); }
+
+  .about-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .about-card-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--green);
+    line-height: 1.2;
+  }
+  .about-card-sub {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience {
+    background: var(--green);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #experience .section-title { color: var(--cream); }
+  #experience .rule { background: var(--terra); }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    background: rgba(244,237,224,0.08);
+  }
+
+  .exp-card {
+    background: var(--green);
+    padding: 2.8rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .exp-card:hover { background: var(--green-mid); }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--terra);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s;
+  }
+  .exp-card:hover::before { transform: scaleX(1); }
+
+  .exp-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(244,237,224,0.1);
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+  }
+
+  .exp-period {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terra-light);
+    margin-bottom: 1.2rem;
+  }
+
+  .exp-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+
+  .exp-company {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: rgba(244,237,224,0.55);
+    margin-bottom: 1.8rem;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .exp-bullets li {
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(244,237,224,0.7);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--terra-light);
+    font-size: 0.75rem;
+  }
+
+  .exp-highlight {
+    display: inline-block;
+    margin-top: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--terra-light);
+  }
+  .exp-highlight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(244,237,224,0.4);
+    margin-top: 0.2rem;
+  }
+
+  /* ─── PROJECTS ─── */
+  #projects {
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .project-card {
+    background: var(--green);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  .project-card:hover { transform: translateY(-4px); }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--terra);
+  }
+
+  .project-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: rgba(244,237,224,0.65);
+  }
+
+  .project-tag {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.35rem 0.9rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: rgba(196,94,42,0.2);
+    color: var(--terra-light);
+    border: 1px solid rgba(196,94,42,0.35);
+  }
+
+  .projects-intro {
+    padding-top: 1rem;
+  }
+
+  .projects-intro .about-text {
+    margin-top: 1.5rem;
+  }
+
+  /* ─── SKILLS ─── */
+  #skills {
+    background: #f0e8d7;
+    padding: 7rem 3.5rem;
+  }
+
+  .skills-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+    align-items: end;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--divider);
+  }
+
+  .skill-group {
+    background: #f0e8d7;
+    padding: 2.2rem 2rem;
+  }
+
+  .skill-group-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--terra);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+  .skill-list li {
+    font-size: 0.83rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.4;
+    opacity: 0.8;
+    transition: opacity 0.15s;
+  }
+  .skill-list li:hover { opacity: 1; color: var(--green); }
+
+  .lang-row {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--divider);
+  }
+
+  .lang-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .lang-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--green);
+  }
+  .lang-level {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--ink);
+    padding: 7rem 3.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  #contact .section-tag { color: var(--terra-light); }
+
+  .contact-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 4.5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--cream);
+  }
+  .contact-title em {
+    font-style: italic;
+    color: var(--terra-light);
+  }
+
+  .contact-sub {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.75;
+    color: rgba(244,237,224,0.55);
+    max-width: 380px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 2rem;
+    background: rgba(244,237,224,0.04);
+    border: 1px solid rgba(244,237,224,0.08);
+    text-decoration: none;
+    transition: all 0.25s;
+    group: '';
+  }
+  .contact-link:hover {
+    background: rgba(244,237,224,0.08);
+    border-color: rgba(244,237,224,0.2);
+    transform: translateX(6px);
+  }
+
+  .contact-link-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(196,94,42,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .contact-link-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(244,237,224,0.4);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+  .contact-link-value {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--cream);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(244,237,224,0.06);
+    padding: 2rem 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(244,237,224,0.25);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.8rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.8rem; }
+
+    #hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 7rem 1.8rem 3rem; }
+    .hero-right { display: none; }
+
+    #about, #projects, #contact {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .exp-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .skills-header { grid-template-columns: 1fr; gap: 1.5rem; }
+
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Emeka Okonkwo</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Work</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-text">EO</div>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow">Marketing & Growth Operator · Nigeria &amp; US</p>
+    <h1 class="hero-name">
+      Emeka<br /><em>Okonkwo</em>
+    </h1>
+    <p class="hero-desc">
+      5+ years building marketing systems for B2B &amp; B2C companies across Africa and the US. I don't just run campaigns — I build the infrastructure that makes them work.
+    </p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn btn-primary">See My Work</a>
+      <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div>
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div>
+        <div class="stat-number">3K+</div>
+        <div class="stat-label">Leaders Reached</div>
+      </div>
+      <div>
+        <div class="stat-number">55%</div>
+        <div class="stat-label">Email Open Rate</div>
+      </div>
+      <div>
+        <div class="stat-number">90</div>
+        <div class="stat-label">NPS Score</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-left reveal">
+    <p class="section-tag">01 · About</p>
+    <h2 class="section-title">The person<br /><em>behind the work</em></h2>
+    <div class="rule"></div>
+    <div class="about-text">
+      <p>I'm a marketing and growth operator with deep roots in both African and US markets. My work lives at the intersection of <strong>strategy, systems, and storytelling</strong> — I believe great marketing is built, not just run.</p>
+      <p>From growing paid memberships by 66% at Seminar to managing a 2,500-strong learner community at Kibo, I've learned to work across the full stack: campaigns, lifecycle, content, brand, and the tech stack that ties it together.</p>
+      <p>Outside of core work, I run <strong>The Kraft</strong> — a podcast where I study how senior operators think. It keeps me sharp, and it means I come to every role as both practitioner and student of marketing.</p>
+    </div>
+  </div>
+
+  <div class="about-right reveal">
+    <div class="about-card">
+      <div class="about-card-label">Current Location</div>
+      <div class="about-card-value">Nigeria (UTC +1)</div>
+      <div class="about-card-sub">Open to remote &amp; US-based roles</div>
+    </div>
+    <div class="about-card">
+      <div class="about-card-label">Education</div>
+      <div class="about-card-value">B.Sc. Mass Communications</div>
+      <div class="about-card-sub">National Open University of Nigeria</div>
+    </div>
+    <div class="about-card">
+      <div class="about-card-label">Languages</div>
+      <div class="about-card-value">English · French</div>
+      <div class="about-card-sub">Native · Upper-Intermediate</div>
+    </div>
+    <div class="about-card">
+      <div class="about-card-label">Podcast</div>
+      <div class="about-card-value">The Kraft</div>
+      <div class="about-card-sub">Host · Producer · Researcher</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="reveal">
+    <p class="section-tag">02 · Experience</p>
+    <h2 class="section-title">Where I've<br /><em>built things</em></h2>
+    <div class="rule"></div>
+  </div>
+
+  <div class="exp-grid">
+    <!-- Card 1 -->
+    <div class="exp-card reveal">
+      <div class="exp-num">01</div>
+      <div class="exp-period">Aug 2024 — Aug 2025</div>
+      <div class="exp-role">Marketing &amp; Communications Lead</div>
+      <div class="exp-company">Seminar · Washington, US</div>
+      <ul class="exp-bullets">
+        <li>End-to-end campaigns for flagship Collectives across product, comms &amp; member engagement.</li>
+        <li>Directed outbound to 3,000+ charter school leaders with 55% open &amp; 15% click-through rates.</li>
+        <li>Co-launched the inaugural Seminar Leadership Awards generating sector-wide earned media.</li>
+        <li>Designed the membership renewal program, aligning tech, comms and iterations for retention.</li>
+      </ul>
+      <div>
+        <div class="exp-highlight">+66%</div>
+        <div class="exp-highlight-label">Paid membership growth (consecutive cycles)</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="exp-card reveal">
+      <div class="exp-num">02</div>
+      <div class="exp-period">Sep 2021 — Jun 2024</div>
+      <div class="exp-role">Program Manager</div>
+      <div class="exp-company">Kibo School of Technology · New York, US</div>
+      <ul class="exp-bullets">
+        <li>Led 10+ faculty across US, Africa &amp; Europe to train 2,500+ learners with a 52% completion rate.</li>
+        <li>Managed alumni network of 1,200 — 27% converted to degree program (top referral source).</li>
+        <li>Owned growth &amp; brand: events, website, social, and student success storytelling.</li>
+        <li>Partnered with product &amp; engineering on alumni tools, onboarding flows &amp; learner dashboards.</li>
+      </ul>
+      <div>
+        <div class="exp-highlight">90 NPS</div>
+        <div class="exp-highlight-label">Learner satisfaction (vs. 5–15% global completion avg.)</div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="exp-card reveal">
+      <div class="exp-num">03</div>
+      <div class="exp-period">Jan 2018 — Dec 2021</div>
+      <div class="exp-role">Sales &amp; Marketing Manager</div>
+      <div class="exp-company">SE Gourmet · Lagos, Nigeria</div>
+      <ul class="exp-bullets">
+        <li>Supervised sales teams across four stores, maintaining ₦200k average daily revenue.</li>
+        <li>Co-developed campaigns for product launches, store openings &amp; outreach initiatives.</li>
+        <li>Managed B2B partnerships with Jumia Food, Glovo, and Kwik Delivery.</li>
+        <li>Centralized digital sales inquiries across Google, Instagram &amp; other channels.</li>
+      </ul>
+      <div>
+        <div class="exp-highlight">₦200k</div>
+        <div class="exp-highlight-label">Average daily revenue maintained across 4 stores</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="projects-intro reveal">
+    <p class="section-tag">03 · Side Projects</p>
+    <h2 class="section-title">Work outside<br /><em>the work</em></h2>
+    <div class="rule"></div>
+    <div class="about-text">
+      <p>I believe the best marketers never stop being students. These side projects reflect how I think about my craft outside of formal roles — building in public, studying senior operators, and experimenting with product.</p>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <div class="project-card reveal">
+      <div class="project-icon">🎙️</div>
+      <div class="project-name">The Kraft</div>
+      <p class="project-desc">A podcast where I get into how technology leaders figure out their work — the systems, mental models, and decision-making frameworks behind complex operator roles. I independently manage research, production, distribution, and growth. Notable guests include Lade Falobi (Marketing for Geeks) and Ugo Iwuchukwu (Bamboo).</p>
+      <span class="project-tag">Podcast · Host · Producer</span>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-icon">💸</div>
+      <div class="project-name">Xpense</div>
+      <p class="project-desc">A personal finance tool for tracking daily expenses and getting a clear breakdown of how, when, and where you spend your money. Built to solve a real friction point and explore product-led thinking.</p>
+      <span class="project-tag">Product · Fintech · Personal</span>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="skills-header reveal">
+    <div>
+      <p class="section-tag">04 · Skills</p>
+      <h2 class="section-title">Tools &amp;<br /><em>Competencies</em></h2>
+      <div class="rule"></div>
+    </div>
+    <p style="font-size:0.95rem; font-weight:300; line-height:1.75; color:var(--muted); max-width:480px;">
+      A cross-functional toolkit built across ops, communications, and growth — spanning both the creative and the technical. I'm comfortable moving between strategy and execution.
+    </p>
+  </div>
+
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="skill-group-name">Business Ops</div>
+      <ul class="skill-list">
+        <li>Google Workspace</li>
+        <li>Microsoft Suite</li>
+        <li>Atlassian Suite</li>
+        <li>Slack &amp; Discord</li>
+        <li>Asana</li>
+        <li>Notion</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-name">Marketing Ops</div>
+      <ul class="skill-list">
+        <li>HubSpot</li>
+        <li>Mailchimp &amp; Sendgrid</li>
+        <li>Drip &amp; Sendbee</li>
+        <li>Hootsuite &amp; Buffer</li>
+        <li>Canva &amp; Figma</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-name">AI, Data &amp; Automation</div>
+      <ul class="skill-list">
+        <li>Airtable &amp; Softr</li>
+        <li>Zapier &amp; Relay</li>
+        <li>Salesforce</li>
+        <li>Looker Studio</li>
+        <li>ChatGPT, Claude, Gemini</li>
+      </ul>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-name">Core Strengths</div>
+      <ul class="skill-list">
+        <li>Campaign Strategy</li>
+        <li>Lifecycle &amp; Email</li>
+        <li>Content &amp; Copywriting</li>
+        <li>Brand &amp; Storytelling</li>
+        <li>Program Management</li>
+        <li>Analytics &amp; Tracking</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="lang-row reveal">
+    <div class="lang-item">
+      <div class="lang-name">English</div>
+      <div class="lang-level">Native Proficiency</div>
+    </div>
+    <div class="lang-item">
+      <div class="lang-name">French</div>
+      <div class="lang-level">Upper-Intermediate (B2)</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <p class="section-tag">05 · Contact</p>
+    <h2 class="contact-title">Let's build<br /><em>something</em><br />together</h2>
+    <p class="contact-sub">
+      I'm currently open to full-time roles and select freelance projects in marketing operations, growth, and communications.
+    </p>
+  </div>
+
+  <div class="contact-links reveal">
+    <a href="mailto:theemekaokonkwo@gmail.com" class="contact-link">
+      <div class="contact-link-icon">✉</div>
+      <div>
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-value">theemekaokonkwo@gmail.com</span>
+      </div>
+    </a>
+    <a href="https://linkedin.com/in/okonkwoemeka" target="_blank" class="contact-link">
+      <div class="contact-link-icon">in</div>
+      <div>
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-value">linkedin.com/in/okonkwoemeka</span>
+      </div>
+    </a>
+    <a href="#" class="contact-link">
+      <div class="contact-link-icon">🎙</div>
+      <div>
+        <span class="contact-link-label">Podcast</span>
+        <span class="contact-link-value">The Kraft — available on all platforms</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Emeka Okonkwo</span>
+  <span>Marketing &amp; Growth Operator · Nigeria</span>
+  <span>Built with intention</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // Stagger cards in exp grid
+  document.querySelectorAll('.exp-card.reveal, .project-card.reveal').forEach((el, i) => {
+    el.style.transitionDelay = `${i * 0.1}s`;
+  });
+</script>
+
+</body>
+</html>
